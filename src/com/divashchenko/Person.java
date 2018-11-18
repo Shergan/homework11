@@ -24,7 +24,6 @@ public class Person {
         this.firstName = firstName;
         this.secondName = secondName;
         this.lastName = lastName;
-        this.birthdayDate = null;
     }
 
     public Person(String fullName) {
@@ -32,7 +31,6 @@ public class Person {
         this.lastName = tmpStringArray[0];
         this.firstName = tmpStringArray[1];
         this.secondName = tmpStringArray[2];
-        this.birthdayDate = null;
     }
 
     //==============================================
