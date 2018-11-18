@@ -1,5 +1,9 @@
 package com.divashchenko;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 public class WorkWithGroup {
@@ -8,8 +12,10 @@ public class WorkWithGroup {
     }
 
     public static String whenIsLastWeekOfGroup(Group group) {
-        // TODO fix time (need first day of week)
-        return group.getStartDateOfCourse().plusWeeks(group.getNumberOfLessons() / group.getNumberOfLessonsInWeek()).toString();
+        LocalDate tmpDate = group.getStartDateOfCourse().plusWeeks(group.getNumberOfLessons() / group.getNumberOfLessonsInWeek()).minusWeeks(1);
+        TemporalAdjuster tmpDay = TemporalAdjusters.next(DayOfWeek.MONDAY);
+        LocalDate lastMond = tmpDate.with(tmpDay);
+        return lastMond.toString();
     }
 
     public static void showStudents(Group group) {
